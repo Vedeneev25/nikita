@@ -1,0 +1,6 @@
+a = input ("введи число а ")
+d = int(a)
+b = input ("Введи число b ")
+e = int(b)
+c = d / e
+print(c)
