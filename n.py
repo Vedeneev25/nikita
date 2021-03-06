@@ -1,4 +1,4 @@
-str_command = input("введи команду ")
+str_command = input("введи команду например 2 + 4 ")
 
 str_A =''
 str_B =''
