@@ -1,19 +1,28 @@
 str_command = input("введи команду например 2 + 4 ")
-
+sF =''
+sS =''
 str_A =''
 str_B =''
 operation =''
 for letter in str_command:
     print(letter)
     if letter =='+' or letter =='-' or letter =='/' or letter =='*' or letter =='^':
-        operation = letter
+        if str_A == '':
+            sF = letter
+        elif operation != '':
+            sS = letter
+        else:
+            operation = letter
     else:
         if operation =='':
             str_A = str_A + letter
         else:
             str_B = str_B + letter
-str_A = str_A.strip()
+            
+str_A = sFstr_A.strip()
 str_B = str_B.strip()
+print(str_A)
+print(str_B)
 
 c = float(str_A)
 #print(type(c))
@@ -38,3 +47,33 @@ else:
     result = "unknown"
 #print(type(result))
 print("Result: " + str(result))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
