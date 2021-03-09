@@ -20,9 +20,7 @@ for letter in str_command:
             str_B = str_B + letter
             
 str_A = sF + str_A.strip()
-str_B = str_B.strip()
-print(str_A)
-print(str_B)
+str_B = sS + str_B.strip()
 
 c = float(str_A)
 #print(type(c))
@@ -31,7 +29,7 @@ d = float(str_B)
 #print(type(d))
 
 if operation == '/':
-    if B == 0:
+    if d == 0:
         result = 'inf'
     else:    
         result = c / d
@@ -47,8 +45,6 @@ else:
     result = "unknown"
 #print(type(result))
 print("Result: " + str(result))
-
-
 
 
 
