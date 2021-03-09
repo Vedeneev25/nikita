@@ -19,7 +19,7 @@ for letter in str_command:
         else:
             str_B = str_B + letter
             
-str_A = sFstr_A.strip()
+str_A = sF + str_A.strip()
 str_B = str_B.strip()
 print(str_A)
 print(str_B)
