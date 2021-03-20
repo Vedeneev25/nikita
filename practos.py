@@ -1,44 +1,27 @@
-str_command = input("введи команду например 2 + 4 ").replace (' ','')
-sF =''
-sS =''
-str_A =''
-str_B =''
-operation =''
-for letter in enumerate(str_command):
-    if letter in =='+-/*^' :
-        if str_A == '':
-            sF = letter
-        elif operation != '':
-            sS = letter
-        else:
-            operation = letter
-    else:
-        if operation =='':
-            str_A = str_A + letter
-        else:
-            str_B = str_B + letter
-            
-str_A = sF + str_A.strip()
-str_B = sS + str_B.strip()
+instr = input('Введите выражение: ').replace(' ','')
 
-c = float(str_A)
-#print(type(c))
+#Распарсить
 
-d = float(str_B)
-#print(type(d))
+hp_ops = tuple('^')
+mp_ops = tuple('*/')
+lp_ops = tuple('+-')
+supported_ops = hp_ops + mp_ops + lp_ops
+digit_chars = tuple(map(str, range(10))) + tuple('.-')
 
-if operation == '/':
-    if d == 0:
-        result = 'inf'
-    else:    
-        result = eval('{0}{1}{2}'.format(c,operation,d))
-elif operation == '^':
-    result = c ** d
-else:
-    result = "unknown"
-#print(type(result))
-print("Result: " + str(result))
+actions = list()
+d = dict()
+d['opr'] = 'First'
+d['val'] = None
+actions.append(d)
 
+
+for letter in instr:
+    if letter in supported_ops and (i > 0):
+        actions.append({'opr': letter, 'val': ''})
+        pass
+    elif letter in digit_chars:
+        actions[-1]['val'] += letter
+        pass
 
 
 
