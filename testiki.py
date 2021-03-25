@@ -1,3 +1,5 @@
+import math
+
 vyr = input("vyrazinie").replace(' ', '')
 vyrlist = list(vyr)
 chisla =['']
@@ -6,10 +8,10 @@ OUTPUT =[]
 stack = []
 nepon =[]
 result=''
-
 ops = {'+':2, '-':2, '/':1, '*':1, '^':0, 'sqrt':0}
 print(vyr)
 print(vyrlist)
+
 for i, letter in enumerate(vyrlist):
     if letter in '+-/*^' and (i>0) and chisla[len(znaki)] != '':
         znaki.append(letter)
@@ -29,15 +31,30 @@ for i in range(max(len(chisla), len(znaki))):
 print(nepon)
 #цикл для отрицалова и корней
 for i, l in enumerate(nepon):
-    if '-' in str(l) and ('1' in str(l) or '2' in str(l) or '3' in str(l) or '4' in str(l) or '5' in str(l) or '6' in str(l) or '7' in str(l) or '8' in str(l) or '9' in str(l)):
-        nepon[i] = str('(0' + nepon[i] + ')' )
-
-for i, l in enumerate(nepon):
     if 'sqrt' in str(l) and ('1' in str(l) or '2' in str(l) or '3' in str(l) or '4' in str(l) or '5' in str(l) or '6' in str(l) or '7' in str(l) or '8' in str(l) or '9' in str(l)):
         nepon[i] = str('(' + nepon[i] + '^0.5)')
 
+for i, l in enumerate(nepon):
+    if 'sin' in str(l) and ('1' in str(l) or '2' in str(l) or '3' in str(l) or '4' in str(l) or '5' in str(l) or '6' in str(l) or '7' in str(l) or '8' in str(l) or '9' in str(l)):
+       t = (nepon[i].split('sin'))
+       v = float(t.pop())
+       nepon[i] = str(math.sin(v))
+       
+for i, l in enumerate(nepon):
+    if 'cos' in str(l) and ('1' in str(l) or '2' in str(l) or '3' in str(l) or '4' in str(l) or '5' in str(l) or '6' in str(l) or '7' in str(l) or '8' in str(l) or '9' in str(l)):
+       t = (nepon[i].split('cos'))
+       v = float(t.pop())
+       nepon[i] = str(math.cos(v))
+       
+for i, l in enumerate(nepon):
+    if '-' in str(l) and ('1' in str(l) or '2' in str(l) or '3' in str(l) or '4' in str(l) or '5' in str(l) or '6' in str(l) or '7' in str(l) or '8' in str(l) or '9' in str(l)):
+        nepon[i] = str('(0' + nepon[i] + ')' )
+       
+
 
 vyr = ''.join(nepon)
+
+
 #что то на польском
 for i in vyr:
     
@@ -73,7 +90,7 @@ for i, l in enumerate(OUTPUT):
 OUTPUT = " ".join(reversed(OUTPUT))
 print(OUTPUT)
 
-#а как какать
+#расчет
 kk = []
 for i, letter in enumerate(OUTPUT.split()):
     if '.' in letter or '0' in letter or '1' in letter or '2' in letter or '3' in letter or '4' in letter or '5' in letter or '6' in letter or '7' in letter or '8' in letter or '9' in letter:
@@ -98,6 +115,10 @@ for i, letter in enumerate(OUTPUT.split()):
     elif letter == 'sqrt':
         vtor = float(kk.pop())
         kk.append(vtor**0.5)
+    elif sin in letter:
+        vtor = float(kk.pop())
+        kk.append(math.sin(vtor))
+                     
     elif letter == '/':
         vtor = float(kk.pop())
         per = float(kk.pop())
